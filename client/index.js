@@ -55,7 +55,7 @@ fileInput.addEventListener('change', function(e) {
             var d = start;
             while (d.getTime() < end.getTime()) {
                 dates.push(d);
-                d = new Date(d.getTime() + 5000 * 60);
+                d = new Date(d.getTime() + 1000 * 60);
             }
 
             return result;
