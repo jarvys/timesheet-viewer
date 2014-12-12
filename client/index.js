@@ -90,7 +90,7 @@ fileInput.addEventListener('change', function(e) {
             .start(startDate)
             .end(endDate)
             .locale(locale)
-            .width(1280)
+            .width(1440)
             .eventColor(function(datum, index) {
                 return color(index);
             });
