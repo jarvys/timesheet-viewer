@@ -1,5 +1,5 @@
 var _ = require('underscore');
-var moment = require('moment');
+var util = require('./util');
 var d3 = require('d3');
 var color = d3.scale.category20();
 
@@ -47,9 +47,7 @@ fileInput.addEventListener('change', function(e) {
             }
 
             var dates = result[taskName].dates;
-            var startStr = record.Date + ' ' + record['Started At'];
-            var p = /am$/.test(startStr) ? 'am' : 'pm'
-            var start = moment(startStr, 'MM/DD/YYYY hh:mm' + p).toDate();
+            var start = util.parseDate(record.Date + ' ' + record['Started At']);
             console.log(startStr, start);
             var end = new Date(start.getTime() + record.Hours * 60 * 1000 * 60);
             var d = start;
