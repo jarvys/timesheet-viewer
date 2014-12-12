@@ -55,7 +55,7 @@ fileInput.addEventListener('change', function(e) {
             var d = start;
             while (d.getTime() < end.getTime()) {
                 dates.push(d);
-                d = new Date(d.getTime() + 1000 * 60);
+                d = new Date(d.getTime() + 2000 * 60);
             }
 
             return result;
@@ -83,6 +83,10 @@ fileInput.addEventListener('change', function(e) {
             });
             return prev > date ? prev : date;
         }, new Date(0));
+
+        tasks = _.sortBy(tasks, function(task) {
+            return task.dates[0];
+        });
 
         console.log(tasks);
 
