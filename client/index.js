@@ -1,5 +1,5 @@
 var _ = require('underscore');
-var util = require('./util');
+var util = require('../util');
 var d3 = require('d3');
 var color = d3.scale.category20();
 
@@ -47,7 +47,8 @@ fileInput.addEventListener('change', function(e) {
             }
 
             var dates = result[taskName].dates;
-            var start = util.parseDate(record.Date + ' ' + record['Started At']);
+            var startStr = record.Date + ' ' + record['Started At'];
+            var start = util.parseDate(startStr);
             console.log(startStr, start);
             var end = new Date(start.getTime() + record.Hours * 60 * 1000 * 60);
             var d = start;
